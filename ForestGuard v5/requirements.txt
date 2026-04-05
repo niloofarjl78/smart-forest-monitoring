@@ -1,0 +1,18 @@
+# IoT Forest Fire Detection System V4 - Dependencies
+# Simplified requirements for academic version
+
+# Core Python Libraries
+requests>=2.28.1
+paho-mqtt>=1.6.1
+pymongo>=4.3.3
+flask>=2.2.2
+python-dotenv>=0.21.0
+
+# Additional utilities for simplified implementation
+psutil>=5.9.0
+
+# Client Interface Dependencies (for supervisor dashboard)
+flask-cors>=4.0.0
+
+# Additional system utilities
+pathlib2>=2.3.7; python_version < '3.4'

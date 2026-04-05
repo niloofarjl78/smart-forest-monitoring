@@ -1,0 +1,61 @@
+{
+  "description": "IoT Forest Fire Detection System - Sensor Locations Configuration",
+  "version": "1.0",
+  "last_updated": "2025-05-25",
+  "total_locations": 6,
+  "locations": [
+    {
+      "zone": "phoenix-north",
+      "coordinates": [-112.0740, 33.6484],
+      "country": "USA",
+      "state": "Arizona",
+      "description": "Phoenix North Forest Area",
+      "fire_risk": "high",
+      "elevation": 331
+    },
+    {
+      "zone": "flagstaff-north", 
+      "coordinates": [-111.6513, 35.3983],
+      "country": "USA",
+      "state": "Arizona", 
+      "description": "Flagstaff North Forest Area",
+      "fire_risk": "medium",
+      "elevation": 2106
+    },
+    {
+      "zone": "tucson-north",
+      "coordinates": [-110.9747, 32.4226],
+      "country": "USA",
+      "state": "Arizona",
+      "description": "Tucson North Desert Area", 
+      "fire_risk": "high",
+      "elevation": 728
+    },
+    {
+      "zone": "sedona-south",
+      "coordinates": [-111.7610, 34.8697],
+      "country": "USA",
+      "state": "Arizona",
+      "description": "Sedona South Red Rock Area",
+      "fire_risk": "medium",
+      "elevation": 1219
+    },    {
+      "zone": "mesa-east",
+      "coordinates": [-111.8315, 33.4152],
+      "country": "USA", 
+      "state": "Arizona",
+      "description": "Mesa East Sonoran Desert",
+      "fire_risk": "high",
+      "elevation": 366
+    },
+    {
+      "zone": "turin-north",
+      "coordinates": [7.6869, 45.0703],
+      "country": "Italy",
+      "state": "Piedmont",
+      "description": "Turin North Alpine Forest Area",
+      "fire_risk": "medium",
+      "elevation": 239
+    }
+  ]
+}

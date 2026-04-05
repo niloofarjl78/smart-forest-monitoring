@@ -1,0 +1,54 @@
+{
+  "system": {
+    "name": "IoT Forest Fire Detection System V4",
+    "version": "4.0.0-simplified",
+    "log_level": "INFO"
+  },
+  "mqtt": {
+    "broker": "localhost",
+    "port": 1883,
+    "topic": "sensors/#",
+    "client_id_prefix": "forest_fire_"
+  },
+  "mongodb": {
+    "connection_string": "mongodb://localhost:27017",
+    "database": "forest_monitoring"
+  },
+  "sensors": {
+    "update_interval": 30,
+    "locations_file": "config/locations.json"
+  },
+  "dashboard": {
+    "port": 5001,
+    "host": "localhost"
+  },
+  "catalog": {
+    "port": 5002,
+    "host": "localhost"
+  },
+  "geojson": {
+    "port": 5003,
+    "host": "localhost"
+  },
+  "alert_manager": {
+    "port": 5004,
+    "host": "localhost"
+  },
+  "data_processor": {
+    "port": 5005,
+    "host": "localhost"
+  },
+  "sensor_manager": {
+    "port": 5006,
+    "host": "localhost"
+  },
+  "telegram": {
+    "bot_token": "7408682027:AAH0G5DmqoIj5sZm7DUaIB_LfCtL5nkZXz8",
+    "authorized_chat_ids": ["1713759131"],
+    "alert_settings": {
+      "send_warnings": true,
+      "send_critical": true,
+      "rate_limit_minutes": 5
+    }
+  }
+}

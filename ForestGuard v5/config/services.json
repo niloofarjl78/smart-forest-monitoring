@@ -1,0 +1,32 @@
+{
+  "catalog": {
+    "host": "localhost",
+    "port": 5002,
+    "name": "Device Catalog Service"
+  },
+  "dashboard": {
+    "host": "localhost",
+    "port": 5001,
+    "name": "Real-time Dashboard"
+  },
+  "geojson": {
+    "host": "localhost",
+    "port": 5003,
+    "name": "GeoJSON Mapping Service"
+  },
+  "alert_manager": {
+    "host": "localhost",
+    "port": 5004,
+    "name": "Alert Management Service"
+  },
+  "data_processor": {
+    "host": "localhost",
+    "port": 5005,
+    "name": "Data Processing Service"
+  },
+  "sensor_manager": {
+    "host": "localhost",
+    "port": 5006,
+    "name": "Sensor Management Service"
+  }
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Detection Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .map-panel {
+            flex: 2;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px #0001;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sensor-panel {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px #0001;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+        }
+        #map {
+            flex: 1;
+            width: 100%;
+            border-radius: 8px;
+            min-height: 400px;
+        }
+        .sensor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .sensor {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 12px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        .sensor h3 { 
+            margin: 0 0 8px 0; 
+            font-size: 1rem; 
+            color: #333;
+        }
+        .value { 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            margin-bottom: 4px;
+        }
+        .online, .normal { color: #198754; }
+        .offline, .critical { color: #dc3545; }
+        .legend { 
+            margin: 8px 0; 
+            font-size: 0.9rem;
+        }
+        .legend-dot { 
+            width: 10px; 
+            height: 10px; 
+            border-radius: 50%; 
+            display: inline-block; 
+            margin-right: 6px; 
+            background: #007bff; 
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Forest Guard: Fire Detection System</h1>
+            <p>Real-time sensor monitoring</p>
+        </div>
+        <div class="main-content">
+            <div class="map-panel">
+                <h3>Sensor Map</h3>
+                <div class="legend">
+                    <span class="legend-dot"></span>Sensor Locations
+                </div>
+                <div id="map"></div>
+            </div>
+            <div class="sensor-panel">
+                <h3>Live Sensor Data</h3>
+                <div class="sensor-list" id="sensor-list"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // MAP CONFIGURATION
+    const DEFAULT_CENTER = [33.4484, -112.0740]; // Phoenix, AZ
+    const DEFAULT_ZOOM = 6;
+    
+    // Initialize map
+    let map = L.map('map').setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    let markers = [];
+    
+    async function loadMapData() {
+        try {
+            console.log('Fetching map data...');
+            const res = await fetch('/api/geojson');
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            const geo = await res.json();
+            console.log('Received GeoJSON data:', geo);
+            
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            if (!geo || !geo.features || !Array.isArray(geo.features)) {
+                console.error('Invalid GeoJSON format:', geo);
+                return;
+            }
+            
+            // Add new markers from GeoJSON
+            geo.features.forEach(feature => {
+                if (feature.geometry && feature.geometry.coordinates) {
+                    const [lng, lat] = feature.geometry.coordinates;
+                    const marker = L.marker([lat, lng]).addTo(map);
+                    const props = feature.properties || {};
+                    
+                    let popupContent = '<div style="min-width: 150px;">';
+                    popupContent += `<b>${props.sensor_type || 'Sensor'}</b><br>`;
+                    popupContent += `Value: ${props.value !== undefined && props.value !== null ? props.value : 'N/A'}<br>`;
+                    popupContent += `Zone: ${props.zone || 'Unknown'}<br>`;
+                    popupContent += `Status: ${props.status || 'unknown'}`;
+                    popupContent += '</div>';
+                    
+                    marker.bindPopup(popupContent);
+                    markers.push(marker);
+                }
+            });
+            
+            // Fit map to bounds if we have markers
+            if (markers.length > 0) {
+                const group = new L.featureGroup(markers);
+                map.fitBounds(group.getBounds().pad(0.1));
+            } else {
+                // Use default view if no markers
+                map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+            }
+        } catch (error) {
+            console.error('Error loading map data:', error);
+            // Fallback to default view on error
+            map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+        }
+    }
+    
+    // SENSOR LIST
+    async function loadSensors() {
+        try {
+            const res = await fetch('/api/sensors');
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            const sensors = await res.json();
+            const el = document.getElementById('sensor-list');
+            
+            if (!Array.isArray(sensors)) {
+                console.error('Expected array of sensors, got:', sensors);
+                el.innerHTML = '<div class="sensor">No sensor data available</div>';
+                return;
+            }
+            
+            el.innerHTML = '';
+            sensors.forEach(s => {
+                el.innerHTML += `<div class="sensor">
+                    <h3>${s.sensor_type.charAt(0).toUpperCase() + s.sensor_type.slice(1)} (${s.zone})</h3>
+                    <div class="value">${s.value ?? 'N/A'}</div>
+                    <div class="${s.status}">${s.status}</div>
+                    <div style="font-size:0.8em;">${s.timestamp ? new Date(s.timestamp).toLocaleString() : ''}</div>
+                </div>`;
+            });
+        } catch (error) {
+            console.error('Error loading sensors:', error);
+            document.getElementById('sensor-list').innerHTML = '<div class="sensor">Error loading sensor data</div>';
+        }
+    }
+    
+    // Initial load and set refresh intervals
+    loadMapData();
+    loadSensors();
+    setInterval(loadMapData, 30000);  // Refresh map every 30 seconds
+    setInterval(loadSensors, 15000);  // Refresh sensors every 15 seconds
+    </script>
+</body>
+</html>

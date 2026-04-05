@@ -1,0 +1,365 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.686569662469958,
+          45.07009772576735
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_turin-north",
+        "sensor_type": "smoke",
+        "value": 0.97,
+        "unit": "ppm",
+        "zone": "turin-north",
+        "timestamp": "2025-06-05T14:31:46.841522",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6864535427859835,
+          45.070079996347594
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_turin-north",
+        "sensor_type": "temperature",
+        "value": 65.43,
+        "unit": "F",
+        "zone": "turin-north",
+        "timestamp": "2025-06-05T14:31:46.779911",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.686965207708326,
+          45.07009011769035
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_turin-north",
+        "sensor_type": "humidity",
+        "value": 53.79,
+        "unit": "%",
+        "zone": "turin-north",
+        "timestamp": "2025-06-05T14:31:46.552037",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.76095996615676,
+          34.86925153774627
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_sedona-south",
+        "sensor_type": "smoke",
+        "value": 0.06,
+        "unit": "ppm",
+        "zone": "sedona-south",
+        "timestamp": "2025-06-05T14:31:46.548165",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.83121166149229,
+          33.41542641009896
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_mesa-east",
+        "sensor_type": "temperature",
+        "value": 61.9,
+        "unit": "F",
+        "zone": "mesa-east",
+        "timestamp": "2025-06-05T14:31:46.546348",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.83161326973377,
+          33.414878281155275
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_mesa-east",
+        "sensor_type": "smoke",
+        "value": 1.49,
+        "unit": "ppm",
+        "zone": "mesa-east",
+        "timestamp": "2025-06-05T14:31:46.483842",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.83107828215599,
+          33.41538123896366
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_mesa-east",
+        "sensor_type": "humidity",
+        "value": 78.99,
+        "unit": "%",
+        "zone": "mesa-east",
+        "timestamp": "2025-06-05T14:31:46.319962",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.97519682465072,
+          32.42229391398124
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_tucson-north",
+        "sensor_type": "smoke",
+        "value": 1.31,
+        "unit": "ppm",
+        "zone": "tucson-north",
+        "timestamp": "2025-06-05T14:31:46.199447",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.76149554602623,
+          34.86975262190041
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_sedona-south",
+        "sensor_type": "humidity",
+        "value": 62.28,
+        "unit": "%",
+        "zone": "sedona-south",
+        "timestamp": "2025-06-05T14:31:46.125928",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.76095058699386,
+          34.86984343122132
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_sedona-south",
+        "sensor_type": "temperature",
+        "value": 61.2,
+        "unit": "F",
+        "zone": "sedona-south",
+        "timestamp": "2025-06-05T14:31:46.121464",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.97490140286052,
+          32.42236264371821
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_tucson-north",
+        "sensor_type": "humidity",
+        "value": 72.85,
+        "unit": "%",
+        "zone": "tucson-north",
+        "timestamp": "2025-06-05T14:31:46.045588",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65099188033811,
+          35.39847436713825
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_flagstaff-north",
+        "sensor_type": "temperature",
+        "value": 79.74,
+        "unit": "F",
+        "zone": "flagstaff-north",
+        "timestamp": "2025-06-05T14:31:45.671338",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.07395049677432,
+          33.64868874131508
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_phoenix-north",
+        "sensor_type": "smoke",
+        "value": 1.3,
+        "unit": "ppm",
+        "zone": "phoenix-north",
+        "timestamp": "2025-06-05T14:31:45.630997",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65144577771437,
+          35.39864762897163
+        ]
+      },
+      "properties": {
+        "sensor_id": "smoke_sensor_flagstaff-north",
+        "sensor_type": "smoke",
+        "value": 0.47,
+        "unit": "ppm",
+        "zone": "flagstaff-north",
+        "timestamp": "2025-06-05T14:31:45.496143",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65124883437784,
+          35.39872574166842
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_flagstaff-north",
+        "sensor_type": "humidity",
+        "value": 57.05,
+        "unit": "%",
+        "zone": "flagstaff-north",
+        "timestamp": "2025-06-05T14:31:45.465065",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.97468657796377,
+          32.42225351255515
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_tucson-north",
+        "sensor_type": "temperature",
+        "value": 79.98,
+        "unit": "F",
+        "zone": "tucson-north",
+        "timestamp": "2025-06-05T14:31:45.449242",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.07445401131359,
+          33.648245251177826
+        ]
+      },
+      "properties": {
+        "sensor_id": "temp_sensor_phoenix-north",
+        "sensor_type": "temperature",
+        "value": 67.97,
+        "unit": "F",
+        "zone": "phoenix-north",
+        "timestamp": "2025-06-05T14:31:45.204564",
+        "status": "critical",
+        "color": "#ff4444"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.07358163510776,
+          33.64802134351097
+        ]
+      },
+      "properties": {
+        "sensor_id": "humidity_sensor_phoenix-north",
+        "sensor_type": "humidity",
+        "value": 75.83,
+        "unit": "%",
+        "zone": "phoenix-north",
+        "timestamp": "2025-06-05T14:31:45.174374",
+        "status": "normal",
+        "color": "#44ff44"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "temperature": {
+    "warning": 90,
+    "critical": 100,
+    "unit": "fahrenheit"
+  },
+  "humidity": {
+    "warning": 30,
+    "critical": 20,
+    "unit": "percentage"
+  },
+  "smoke": {
+    "warning": 20,
+    "critical": 50,
+    "unit": "ppm"
+  }
+}

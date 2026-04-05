@@ -1,0 +1,9 @@
+{
+  "bot_token": "7408682027:AAH0G5DmqoIj5sZm7DUaIB_LfCtL5nkZXz8",
+  "authorized_chat_ids": ["1713759131"],
+  "alert_settings": {
+    "send_warnings": true,
+    "send_critical": true,
+    "rate_limit_minutes": 5
+  }
+}
