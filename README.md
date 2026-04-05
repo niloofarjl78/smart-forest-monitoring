@@ -1,4 +1,3 @@
-# Smart-forest-monitoring
 # ForestGuard IoT Monitoring System
 
 A smart forest monitoring project using IoT, sensors, and real-time communication for environmental risk detection.
